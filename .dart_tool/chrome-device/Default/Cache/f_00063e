@@ -1,0 +1,478 @@
+define(['dart_sdk', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver_multi_box_adaptor.dart', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter_staggered_grid_view/src/widgets/staggered_tile.dart', 'packages/flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart'], (function load__packages__flutter_staggered_grid_view__src__widgets__sliver_dart(dart_sdk, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter_staggered_grid_view__src__rendering__sliver_variable_size_box_adaptor$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart, packages__flutter__src__painting__basic_types$46dart, packages__flutter_staggered_grid_view__src__widgets__staggered_tile$46dart, packages__flutter_staggered_grid_view__src__rendering__sliver_staggered_grid$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const sliver = packages__flutter__src__widgets__widget_span$46dart.src__widgets__sliver;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const sliver$ = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const sliver_variable_size_box_adaptor = packages__flutter_staggered_grid_view__src__rendering__sliver_variable_size_box_adaptor$46dart.src__rendering__sliver_variable_size_box_adaptor;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const sliver_multi_box_adaptor = packages__flutter__src__rendering__sliver_multi_box_adaptor$46dart.src__rendering__sliver_multi_box_adaptor;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const staggered_tile = packages__flutter_staggered_grid_view__src__widgets__staggered_tile$46dart.src__widgets__staggered_tile;
+  const sliver_staggered_grid = packages__flutter_staggered_grid_view__src__rendering__sliver_staggered_grid$46dart.src__rendering__sliver_staggered_grid;
+  var sliver$0 = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
+  var $clear = dartx.clear;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $any = dartx.any;
+  var $toList = dartx.toList;
+  var $forEach = dartx.forEach;
+  var $where = dartx.where;
+  var $_get = dartx._get;
+  var $length = dartx.length;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    SliverChildDelegateL: () => (T.SliverChildDelegateL = dart.constFn(dart.legacy(sliver.SliverChildDelegate)))(),
+    DiagnosticsPropertyOfSliverChildDelegateL: () => (T.DiagnosticsPropertyOfSliverChildDelegateL = dart.constFn(diagnostics.DiagnosticsProperty$(T.SliverChildDelegateL())))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    IdentityMapOfintL$WidgetL: () => (T.IdentityMapOfintL$WidgetL = dart.constFn(_js_helper.IdentityMap$(T.intL(), T.WidgetL())))(),
+    ElementL: () => (T.ElementL = dart.constFn(dart.legacy(framework.Element)))(),
+    SplayTreeMapOfintL$ElementL: () => (T.SplayTreeMapOfintL$ElementL = dart.constFn(collection.SplayTreeMap$(T.intL(), T.ElementL())))(),
+    SliverVariableSizeBoxAdaptorWidgetL: () => (T.SliverVariableSizeBoxAdaptorWidgetL = dart.constFn(dart.legacy(sliver$0.SliverVariableSizeBoxAdaptorWidget)))(),
+    RenderSliverVariableSizeBoxAdaptorL: () => (T.RenderSliverVariableSizeBoxAdaptorL = dart.constFn(dart.legacy(sliver_variable_size_box_adaptor.RenderSliverVariableSizeBoxAdaptor)))(),
+    VoidToWidgetL: () => (T.VoidToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    SliverVariableSizeBoxAdaptorParentDataL: () => (T.SliverVariableSizeBoxAdaptorParentDataL = dart.constFn(dart.legacy(sliver_variable_size_box_adaptor.SliverVariableSizeBoxAdaptorParentData)))(),
+    RenderObjectL: () => (T.RenderObjectL = dart.constFn(dart.legacy(object.RenderObject)))(),
+    RenderBoxL: () => (T.RenderBoxL = dart.constFn(dart.legacy(box.RenderBox)))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    VoidToboolL: () => (T.VoidToboolL = dart.constFn(dart.fnType(T.boolL(), [])))(),
+    ElementLToboolL: () => (T.ElementLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.ElementL()])))(),
+    SliverMultiBoxAdaptorParentDataL: () => (T.SliverMultiBoxAdaptorParentDataL = dart.constFn(dart.legacy(sliver_multi_box_adaptor.SliverMultiBoxAdaptorParentData)))(),
+    StaggeredTileL: () => (T.StaggeredTileL = dart.constFn(dart.legacy(staggered_tile.StaggeredTile)))(),
+    intLToStaggeredTileL: () => (T.intLToStaggeredTileL = dart.constFn(dart.fnType(T.StaggeredTileL(), [T.intL()])))(),
+    SliverVariableSizeBoxAdaptorElementL: () => (T.SliverVariableSizeBoxAdaptorElementL = dart.constFn(dart.legacy(sliver$0.SliverVariableSizeBoxAdaptorElement)))(),
+    RenderSliverStaggeredGridL: () => (T.RenderSliverStaggeredGridL = dart.constFn(dart.legacy(sliver_staggered_grid.RenderSliverStaggeredGrid)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([], T.WidgetL());
+    },
+    get C3() {
+      return C[3] = dart.constList([], T.StaggeredTileL());
+    }
+  }, false);
+  var C = Array(4).fill(void 0);
+  var I = [
+    "file:///C:/Users/91935/Downloads/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_staggered_grid_view-0.3.4/lib/src/widgets/sliver.dart",
+    "package:flutter_staggered_grid_view/src/widgets/sliver.dart"
+  ];
+  var delegate$ = dart.privateName(sliver$0, "SliverVariableSizeBoxAdaptorWidget.delegate");
+  sliver$0.SliverVariableSizeBoxAdaptorWidget = class SliverVariableSizeBoxAdaptorWidget extends sliver.SliverWithKeepAliveWidget {
+    get delegate() {
+      return this[delegate$];
+    }
+    set delegate(value) {
+      super.delegate = value;
+    }
+    createElement() {
+      return new sliver$0.SliverVariableSizeBoxAdaptorElement.new(this);
+    }
+    estimateMaxScrollOffset(constraints, firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset) {
+      if (!(dart.notNull(lastIndex) >= dart.notNull(firstIndex))) dart.assertFailed(null, I[0], 58, 12, "lastIndex >= firstIndex");
+      return this.delegate.estimateMaxScrollOffset(firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset);
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfSliverChildDelegateL()).new("delegate", this.delegate));
+    }
+  };
+  (sliver$0.SliverVariableSizeBoxAdaptorWidget.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[delegate$] = delegate;
+    sliver$0.SliverVariableSizeBoxAdaptorWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = sliver$0.SliverVariableSizeBoxAdaptorWidget.prototype;
+  dart.addTypeTests(sliver$0.SliverVariableSizeBoxAdaptorWidget);
+  dart.addTypeCaches(sliver$0.SliverVariableSizeBoxAdaptorWidget);
+  dart.setMethodSignature(sliver$0.SliverVariableSizeBoxAdaptorWidget, () => ({
+    __proto__: dart.getMethods(sliver$0.SliverVariableSizeBoxAdaptorWidget.__proto__),
+    createElement: dart.fnType(dart.legacy(sliver$0.SliverVariableSizeBoxAdaptorElement), []),
+    estimateMaxScrollOffset: dart.fnType(dart.legacy(core.double), [dart.legacy(sliver$.SliverConstraints), dart.legacy(core.int), dart.legacy(core.int), dart.legacy(core.double), dart.legacy(core.double)]),
+    debugFillProperties: dart.fnType(dart.void, [dart.legacy(diagnostics.DiagnosticPropertiesBuilder)])
+  }));
+  dart.setLibraryUri(sliver$0.SliverVariableSizeBoxAdaptorWidget, I[1]);
+  dart.setFieldSignature(sliver$0.SliverVariableSizeBoxAdaptorWidget, () => ({
+    __proto__: dart.getFields(sliver$0.SliverVariableSizeBoxAdaptorWidget.__proto__),
+    delegate: dart.finalFieldType(dart.legacy(sliver.SliverChildDelegate))
+  }));
+  var _childWidgets = dart.privateName(sliver$0, "_childWidgets");
+  var _childElements = dart.privateName(sliver$0, "_childElements");
+  var _currentlyUpdatingChildIndex = dart.privateName(sliver$0, "_currentlyUpdatingChildIndex");
+  var _didUnderflow = dart.privateName(sliver$0, "_didUnderflow");
+  var _build = dart.privateName(sliver$0, "_build");
+  var _extrapolateMaxScrollOffset = dart.privateName(sliver$0, "_extrapolateMaxScrollOffset");
+  var _name = dart.privateName(basic_types, "_name");
+  sliver$0.SliverVariableSizeBoxAdaptorElement = class SliverVariableSizeBoxAdaptorElement extends framework.RenderObjectElement {
+    get widget() {
+      return T.SliverVariableSizeBoxAdaptorWidgetL().as(super.widget);
+    }
+    get renderObject() {
+      return T.RenderSliverVariableSizeBoxAdaptorL().as(super.renderObject);
+    }
+    update(newWidget) {
+      T.SliverVariableSizeBoxAdaptorWidgetL().as(newWidget);
+      let oldWidget = this.widget;
+      super.update(newWidget);
+      let newDelegate = newWidget.delegate;
+      let oldDelegate = oldWidget.delegate;
+      if (!dart.equals(newDelegate, oldDelegate) && (!dart.equals(dart.runtimeType(newDelegate), dart.runtimeType(oldDelegate)) || dart.test(newDelegate.shouldRebuild(oldDelegate)))) this.performRebuild();
+    }
+    performRebuild() {
+      this[_childWidgets][$clear]();
+      super.performRebuild();
+      if (!(this[_currentlyUpdatingChildIndex] == null)) dart.assertFailed(null, I[0], 117, 12, "_currentlyUpdatingChildIndex == null");
+      try {
+        let firstIndex = this[_childElements].firstKey();
+        let lastIndex = this[_childElements].lastKey();
+        if (dart.test(this[_childElements].isEmpty)) {
+          firstIndex = 0;
+          lastIndex = 0;
+        } else if (dart.test(this[_didUnderflow])) {
+          lastIndex = dart.notNull(lastIndex) + 1;
+        }
+        for (let index = firstIndex; dart.notNull(index) <= dart.notNull(lastIndex); index = dart.notNull(index) + 1) {
+          this[_currentlyUpdatingChildIndex] = index;
+          let newChild = this.updateChild(this[_childElements]._get(index), this[_build](index), index);
+          if (newChild != null) {
+            this[_childElements]._set(index, newChild);
+          } else {
+            this[_childElements].remove(index);
+          }
+        }
+      } finally {
+        this[_currentlyUpdatingChildIndex] = null;
+      }
+    }
+    [_build](index) {
+      return this[_childWidgets][$putIfAbsent](index, dart.fn(() => this.widget.delegate.build(this, index), T.VoidToWidgetL()));
+    }
+    createChild(index) {
+      if (!(this[_currentlyUpdatingChildIndex] == null)) dart.assertFailed(null, I[0], 149, 12, "_currentlyUpdatingChildIndex == null");
+      this.owner.buildScope(this, dart.fn(() => {
+        let newChild = null;
+        try {
+          this[_currentlyUpdatingChildIndex] = index;
+          newChild = this.updateChild(this[_childElements]._get(index), this[_build](index), index);
+        } finally {
+          this[_currentlyUpdatingChildIndex] = null;
+        }
+        if (newChild != null) {
+          this[_childElements]._set(index, newChild);
+        } else {
+          this[_childElements].remove(index);
+        }
+      }, T.VoidToNull()));
+    }
+    updateChild(child, newWidget, newSlot) {
+      let t0, t0$, t0$0, t0$1;
+      let oldParentData = T.SliverVariableSizeBoxAdaptorParentDataL().as((t0$ = (t0 = child, t0 == null ? null : t0.renderObject), t0$ == null ? null : t0$.parentData));
+      let newChild = super.updateChild(child, newWidget, newSlot);
+      let newParentData = T.SliverVariableSizeBoxAdaptorParentDataL().as((t0$1 = (t0$0 = newChild, t0$0 == null ? null : t0$0.renderObject), t0$1 == null ? null : t0$1.parentData));
+      if (newParentData != null) {
+        newParentData.keepAlive = true;
+      }
+      if (!dart.equals(oldParentData, newParentData) && oldParentData != null && newParentData != null) {
+        newParentData.layoutOffset = oldParentData.layoutOffset;
+      }
+      return newChild;
+    }
+    forgetChild(child) {
+      if (!(child != null)) dart.assertFailed(null, I[0], 191, 12, "child != null");
+      if (!(child.slot != null)) dart.assertFailed(null, I[0], 192, 12, "child.slot != null");
+      if (!dart.test(this[_childElements].containsKey(child.slot))) dart.assertFailed(null, I[0], 193, 12, "_childElements.containsKey(child.slot)");
+      this[_childElements].remove(child.slot);
+      super.forgetChild(child);
+    }
+    removeChild(child) {
+      let index = this.renderObject.indexOf(child);
+      if (!(this[_currentlyUpdatingChildIndex] == null)) dart.assertFailed(null, I[0], 201, 12, "_currentlyUpdatingChildIndex == null");
+      if (!(dart.notNull(index) >= 0)) dart.assertFailed(null, I[0], 202, 12, "index >= 0");
+      this.owner.buildScope(this, dart.fn(() => {
+        if (!dart.test(this[_childElements].containsKey(index))) dart.assertFailed(null, I[0], 204, 14, "_childElements.containsKey(index)");
+        try {
+          this[_currentlyUpdatingChildIndex] = index;
+          let result = this.updateChild(this[_childElements]._get(index), null, index);
+          if (!(result == null)) dart.assertFailed(null, I[0], 208, 16, "result == null");
+        } finally {
+          this[_currentlyUpdatingChildIndex] = null;
+        }
+        this[_childElements].remove(index);
+        if (!!dart.test(this[_childElements].containsKey(index))) dart.assertFailed(null, I[0], 213, 14, "!_childElements.containsKey(index)");
+      }, T.VoidToNull()));
+    }
+    [_extrapolateMaxScrollOffset](firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset) {
+      let childCount = this.childCount;
+      if (childCount == null) return 1 / 0;
+      if (lastIndex === dart.notNull(childCount) - 1) return trailingScrollOffset;
+      let reifiedCount = dart.notNull(lastIndex) - dart.notNull(firstIndex) + 1;
+      let averageExtent = (dart.notNull(trailingScrollOffset) - dart.notNull(leadingScrollOffset)) / reifiedCount;
+      let remainingCount = dart.notNull(childCount) - dart.notNull(lastIndex) - 1;
+      return dart.notNull(trailingScrollOffset) + averageExtent * remainingCount;
+    }
+    estimateMaxScrollOffset(constraints, opts) {
+      let t0;
+      let firstIndex = opts && 'firstIndex' in opts ? opts.firstIndex : null;
+      let lastIndex = opts && 'lastIndex' in opts ? opts.lastIndex : null;
+      let leadingScrollOffset = opts && 'leadingScrollOffset' in opts ? opts.leadingScrollOffset : null;
+      let trailingScrollOffset = opts && 'trailingScrollOffset' in opts ? opts.trailingScrollOffset : null;
+      t0 = this.widget.estimateMaxScrollOffset(constraints, firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset);
+      return t0 == null ? this[_extrapolateMaxScrollOffset](firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset) : t0;
+    }
+    get childCount() {
+      return this.widget.delegate.estimatedChildCount;
+    }
+    didStartLayout() {
+      if (!dart.test(this.debugAssertChildListLocked())) dart.assertFailed(null, I[0], 261, 12, "debugAssertChildListLocked()");
+    }
+    didFinishLayout() {
+      let t0, t0$;
+      if (!dart.test(this.debugAssertChildListLocked())) dart.assertFailed(null, I[0], 266, 12, "debugAssertChildListLocked()");
+      let firstIndex = (t0 = this[_childElements].firstKey(), t0 == null ? 0 : t0);
+      let lastIndex = (t0$ = this[_childElements].lastKey(), t0$ == null ? 0 : t0$);
+      this.widget.delegate.didFinishLayout(firstIndex, lastIndex);
+    }
+    debugAssertChildListLocked() {
+      if (!(this[_currentlyUpdatingChildIndex] == null)) dart.assertFailed(null, I[0], 276, 12, "_currentlyUpdatingChildIndex == null");
+      return true;
+    }
+    didAdoptChild(child) {
+      if (!(this[_currentlyUpdatingChildIndex] != null)) dart.assertFailed(null, I[0], 282, 12, "_currentlyUpdatingChildIndex != null");
+      let childParentData = T.SliverVariableSizeBoxAdaptorParentDataL().as(child.parentData);
+      childParentData.index = this[_currentlyUpdatingChildIndex];
+    }
+    setDidUnderflow(value) {
+      this[_didUnderflow] = value;
+    }
+    insertChildRenderObject(child, slot) {
+      T.RenderObjectL().as(child);
+      T.intL().as(slot);
+      if (!(slot != null)) dart.assertFailed(null, I[0], 297, 12, "slot != null");
+      if (!(this[_currentlyUpdatingChildIndex] == slot)) dart.assertFailed(null, I[0], 298, 12, "_currentlyUpdatingChildIndex == slot");
+      if (!dart.test(this.renderObject.debugValidateChild(child))) dart.assertFailed(null, I[0], 299, 12, "renderObject.debugValidateChild(child)");
+      this.renderObject._set(this[_currentlyUpdatingChildIndex], T.RenderBoxL().as(child));
+      if (!dart.test(dart.fn(() => {
+        let childParentData = T.SliverVariableSizeBoxAdaptorParentDataL().as(child.parentData);
+        if (!(slot == childParentData.index)) dart.assertFailed(null, I[0], 304, 14, "slot == childParentData.index");
+        return true;
+      }, T.VoidToboolL())())) dart.assertFailed(null, I[0], 301, 12, "() {\r\n      final SliverVariableSizeBoxAdaptorParentData childParentData =\r\n          child.parentData;\r\n      assert(slot == childParentData.index);\r\n      return true;\r\n    }()");
+    }
+    moveChildRenderObject(child, slot) {
+      T.RenderObjectL().as(child);
+      T.intL().as(slot);
+      if (!false) dart.assertFailed(null, I[0], 313, 12, "false");
+    }
+    removeChildRenderObject(child) {
+      T.RenderObjectL().as(child);
+      if (!(this[_currentlyUpdatingChildIndex] != null)) dart.assertFailed(null, I[0], 318, 12, "_currentlyUpdatingChildIndex != null");
+      this.renderObject.remove(this[_currentlyUpdatingChildIndex]);
+    }
+    visitChildren(visitor) {
+      if (!!dart.test(this[_childElements].values[$any](dart.fn(child => child == null, T.ElementLToboolL())))) dart.assertFailed(null, I[0], 326, 12, "!_childElements.values.any((Element child) => child == null)");
+      this[_childElements].values[$toList]()[$forEach](visitor);
+    }
+    debugVisitOnstageChildren(visitor) {
+      this[_childElements].values[$where](dart.fn(child => {
+        let parentData = T.SliverMultiBoxAdaptorParentDataL().as(child.renderObject.parentData);
+        let itemExtent = null;
+        switch (this.renderObject.constraints.axis) {
+          case C[0] || CT.C0:
+          {
+            itemExtent = child.renderObject.paintBounds.width;
+            break;
+          }
+          case C[1] || CT.C1:
+          {
+            itemExtent = child.renderObject.paintBounds.height;
+            break;
+          }
+        }
+        return dart.notNull(parentData.layoutOffset) < dart.notNull(this.renderObject.constraints.scrollOffset) + dart.notNull(this.renderObject.constraints.remainingPaintExtent) && dart.notNull(parentData.layoutOffset) + dart.notNull(itemExtent) > dart.notNull(this.renderObject.constraints.scrollOffset);
+      }, T.ElementLToboolL()))[$forEach](visitor);
+    }
+  };
+  (sliver$0.SliverVariableSizeBoxAdaptorElement.new = function(widget) {
+    this[_childWidgets] = new (T.IdentityMapOfintL$WidgetL()).new();
+    this[_childElements] = new (T.SplayTreeMapOfintL$ElementL()).new();
+    this[_currentlyUpdatingChildIndex] = null;
+    this[_didUnderflow] = false;
+    sliver$0.SliverVariableSizeBoxAdaptorElement.__proto__.new.call(this, widget);
+    ;
+  }).prototype = sliver$0.SliverVariableSizeBoxAdaptorElement.prototype;
+  dart.addTypeTests(sliver$0.SliverVariableSizeBoxAdaptorElement);
+  dart.addTypeCaches(sliver$0.SliverVariableSizeBoxAdaptorElement);
+  sliver$0.SliverVariableSizeBoxAdaptorElement[dart.implements] = () => [sliver_variable_size_box_adaptor.RenderSliverVariableSizeBoxChildManager];
+  dart.setMethodSignature(sliver$0.SliverVariableSizeBoxAdaptorElement, () => ({
+    __proto__: dart.getMethods(sliver$0.SliverVariableSizeBoxAdaptorElement.__proto__),
+    update: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+    [_build]: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(core.int)]),
+    createChild: dart.fnType(dart.void, [dart.legacy(core.int)]),
+    updateChild: dart.fnType(dart.legacy(framework.Element), [dart.legacy(framework.Element), dart.legacy(framework.Widget), dart.dynamic]),
+    forgetChild: dart.fnType(dart.void, [dart.legacy(framework.Element)]),
+    removeChild: dart.fnType(dart.void, [dart.legacy(box.RenderBox)]),
+    [_extrapolateMaxScrollOffset]: dart.fnType(dart.legacy(core.double), [dart.legacy(core.int), dart.legacy(core.int), dart.legacy(core.double), dart.legacy(core.double)]),
+    estimateMaxScrollOffset: dart.fnType(dart.legacy(core.double), [dart.legacy(sliver$.SliverConstraints)], {firstIndex: dart.legacy(core.int), lastIndex: dart.legacy(core.int), leadingScrollOffset: dart.legacy(core.double), trailingScrollOffset: dart.legacy(core.double)}, {}),
+    didStartLayout: dart.fnType(dart.void, []),
+    didFinishLayout: dart.fnType(dart.void, []),
+    debugAssertChildListLocked: dart.fnType(dart.legacy(core.bool), []),
+    didAdoptChild: dart.fnType(dart.void, [dart.legacy(box.RenderBox)]),
+    setDidUnderflow: dart.fnType(dart.void, [dart.legacy(core.bool)]),
+    insertChildRenderObject: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+    moveChildRenderObject: dart.fnType(dart.void, [dart.legacy(core.Object), dart.legacy(core.Object)]),
+    removeChildRenderObject: dart.fnType(dart.void, [dart.legacy(core.Object)]),
+    visitChildren: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(framework.Element)]))]),
+    debugVisitOnstageChildren: dart.fnType(dart.void, [dart.legacy(dart.fnType(dart.void, [dart.legacy(framework.Element)]))])
+  }));
+  dart.setGetterSignature(sliver$0.SliverVariableSizeBoxAdaptorElement, () => ({
+    __proto__: dart.getGetters(sliver$0.SliverVariableSizeBoxAdaptorElement.__proto__),
+    widget: dart.legacy(sliver$0.SliverVariableSizeBoxAdaptorWidget),
+    renderObject: dart.legacy(sliver_variable_size_box_adaptor.RenderSliverVariableSizeBoxAdaptor),
+    childCount: dart.legacy(core.int)
+  }));
+  dart.setLibraryUri(sliver$0.SliverVariableSizeBoxAdaptorElement, I[1]);
+  dart.setFieldSignature(sliver$0.SliverVariableSizeBoxAdaptorElement, () => ({
+    __proto__: dart.getFields(sliver$0.SliverVariableSizeBoxAdaptorElement.__proto__),
+    [_childWidgets]: dart.finalFieldType(dart.legacy(core.Map$(dart.legacy(core.int), dart.legacy(framework.Widget)))),
+    [_childElements]: dart.finalFieldType(dart.legacy(collection.SplayTreeMap$(dart.legacy(core.int), dart.legacy(framework.Element)))),
+    [_currentlyUpdatingChildIndex]: dart.fieldType(dart.legacy(core.int)),
+    [_didUnderflow]: dart.fieldType(dart.legacy(core.bool))
+  }));
+  var gridDelegate$ = dart.privateName(sliver$0, "SliverStaggeredGrid.gridDelegate");
+  sliver$0.SliverStaggeredGrid = class SliverStaggeredGrid extends sliver$0.SliverVariableSizeBoxAdaptorWidget {
+    get gridDelegate() {
+      return this[gridDelegate$];
+    }
+    set gridDelegate(value) {
+      super.gridDelegate = value;
+    }
+    createRenderObject(context) {
+      let element = T.SliverVariableSizeBoxAdaptorElementL().as(context);
+      return new sliver_staggered_grid.RenderSliverStaggeredGrid.new({childManager: element, gridDelegate: this.gridDelegate});
+    }
+    updateRenderObject(context, renderObject) {
+      T.RenderSliverStaggeredGridL().as(renderObject);
+      renderObject.gridDelegate = this.gridDelegate;
+    }
+    estimateMaxScrollOffset(constraints, firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset) {
+      return super.estimateMaxScrollOffset(constraints, firstIndex, lastIndex, leadingScrollOffset, trailingScrollOffset);
+    }
+  };
+  (sliver$0.SliverStaggeredGrid.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
+    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = gridDelegate;
+    sliver$0.SliverStaggeredGrid.__proto__.new.call(this, {key: key, delegate: delegate, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = sliver$0.SliverStaggeredGrid.prototype;
+  (sliver$0.SliverStaggeredGrid.count = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let children = opts && 'children' in opts ? opts.children : C[2] || CT.C2;
+    let staggeredTiles = opts && 'staggeredTiles' in opts ? opts.staggeredTiles : C[3] || CT.C3;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = new sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.new({crossAxisCount: crossAxisCount, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, staggeredTileBuilder: dart.fn(i => staggeredTiles[$_get](i), T.intLToStaggeredTileL()), staggeredTileCount: (t0 = staggeredTiles, t0 == null ? null : t0[$length])});
+    sliver$0.SliverStaggeredGrid.__proto__.new.call(this, {key: key, delegate: new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: true}), $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = sliver$0.SliverStaggeredGrid.prototype;
+  (sliver$0.SliverStaggeredGrid.countBuilder = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    let staggeredTileBuilder = opts && 'staggeredTileBuilder' in opts ? opts.staggeredTileBuilder : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = new sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.new({crossAxisCount: crossAxisCount, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, staggeredTileBuilder: staggeredTileBuilder, staggeredTileCount: itemCount});
+    sliver$0.SliverStaggeredGrid.__proto__.new.call(this, {key: key, delegate: new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount, addAutomaticKeepAlives: true, addRepaintBoundaries: true}), $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = sliver$0.SliverStaggeredGrid.prototype;
+  (sliver$0.SliverStaggeredGrid.extent = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let maxCrossAxisExtent = opts && 'maxCrossAxisExtent' in opts ? opts.maxCrossAxisExtent : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let children = opts && 'children' in opts ? opts.children : C[2] || CT.C2;
+    let staggeredTiles = opts && 'staggeredTiles' in opts ? opts.staggeredTiles : C[3] || CT.C3;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = new sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.new({maxCrossAxisExtent: maxCrossAxisExtent, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, staggeredTileBuilder: dart.fn(i => staggeredTiles[$_get](i), T.intLToStaggeredTileL()), staggeredTileCount: (t0 = staggeredTiles, t0 == null ? null : t0[$length])});
+    sliver$0.SliverStaggeredGrid.__proto__.new.call(this, {key: key, delegate: new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: true}), $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = sliver$0.SliverStaggeredGrid.prototype;
+  (sliver$0.SliverStaggeredGrid.extentBuilder = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let maxCrossAxisExtent = opts && 'maxCrossAxisExtent' in opts ? opts.maxCrossAxisExtent : null;
+    let staggeredTileBuilder = opts && 'staggeredTileBuilder' in opts ? opts.staggeredTileBuilder : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = new sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.new({maxCrossAxisExtent: maxCrossAxisExtent, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, staggeredTileBuilder: staggeredTileBuilder, staggeredTileCount: itemCount});
+    sliver$0.SliverStaggeredGrid.__proto__.new.call(this, {key: key, delegate: new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount, addAutomaticKeepAlives: true, addRepaintBoundaries: true}), $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = sliver$0.SliverStaggeredGrid.prototype;
+  dart.addTypeTests(sliver$0.SliverStaggeredGrid);
+  dart.addTypeCaches(sliver$0.SliverStaggeredGrid);
+  dart.setMethodSignature(sliver$0.SliverStaggeredGrid, () => ({
+    __proto__: dart.getMethods(sliver$0.SliverStaggeredGrid.__proto__),
+    createRenderObject: dart.fnType(dart.legacy(sliver_staggered_grid.RenderSliverStaggeredGrid), [dart.legacy(framework.BuildContext)]),
+    updateRenderObject: dart.fnType(dart.void, [dart.legacy(framework.BuildContext), dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(sliver$0.SliverStaggeredGrid, I[1]);
+  dart.setFieldSignature(sliver$0.SliverStaggeredGrid, () => ({
+    __proto__: dart.getFields(sliver$0.SliverStaggeredGrid.__proto__),
+    gridDelegate: dart.finalFieldType(dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegate))
+  }));
+  dart.trackLibraries("packages/flutter_staggered_grid_view/src/widgets/sliver.dart", {
+    "package:flutter_staggered_grid_view/src/widgets/sliver.dart": sliver$0
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["sliver.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA+B4B;;;;;;;AAItB,YAAI,sDAAoC;IAAK;4BAgB7B,aACd,YACA,WACG,qBACA;AAEP,YAAiB,aAAV,SAAS,kBAAI,UAAU;AAC9B,YAAO,AAAS,uCACd,UAAU,EACV,SAAS,EACT,mBAAmB,EACnB,oBAAoB;IAExB;wBAGqD;AACd,MAA/B,0BAAoB,UAAU;AAEmC,MADvE,AAAW,UAAD,KACF,wDAAyC,YAAY;IAC/D;;;QAtDM;QACW;;;AACZ,+EAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;AAkE6B,wDAAM;IAAM;;AAGN,wDAAM;IAAY;;iDAGhB;AACd,sBAAY;AAC9B,MAAjB,aAAO,SAAS;AACI,wBAAc,AAAU,SAAD;AACvB,wBAAc,AAAU,SAAD;AACjD,UAAgB,aAAZ,WAAW,EAAI,WAAW,MACD,aAAZ,iBAAZ,WAAW,GAA4B,iBAAZ,WAAW,gBACnC,AAAY,WAAD,eAAe,WAAW,KAAI,AAAgB;IACnE;;AAeuB,MAArB,AAAc;AACQ,MAAhB;AACN,YAAO,AAA6B;AACpC;AACM,yBAAa,AAAe;AAC5B,wBAAY,AAAe;AAC/B,sBAAI,AAAe;AACH,UAAd,aAAa;AACA,UAAb,YAAY;cACP,eAAI;AACK,UAAd,YAAU,aAAV,SAAS,IAAI;;AAEf,iBAAS,QAAQ,UAAU,EAAQ,aAAN,KAAK,kBAAI,SAAS,GAAI,QAAF,aAAE,KAAK,IAAP;AACX,UAApC,qCAA+B,KAAK;AACtB,yBACV,iBAAY,AAAc,0BAAC,KAAK,GAAG,aAAO,KAAK,GAAG,KAAK;AAC3D,cAAI,AAAS,QAAD;AACsB,YAAhC,AAAc,0BAAC,KAAK,EAAI,QAAQ;;AAEJ,YAA5B,AAAe,4BAAO,KAAK;;;;AAII,QAAnC,qCAA+B;;IAEnC;aAEkB;AAChB,YAAO,AAAc,mCACjB,KAAK,EAAE,cAAM,AAAO,AAAS,2BAAM,MAAM,KAAK;IACpD;gBAGqB;AACnB,YAAO,AAA6B;AAclC,MAbF,AAAM,sBAAW,MAAM;AACb;AACR;AACsC,UAApC,qCAA+B,KAAK;AAC+B,UAAnE,WAAW,iBAAY,AAAc,0BAAC,KAAK,GAAG,aAAO,KAAK,GAAG,KAAK;;AAE/B,UAAnC,qCAA+B;;AAEjC,YAAI,AAAS,QAAD;AACsB,UAAhC,AAAc,0BAAC,KAAK,EAAI,QAAQ;;AAEJ,UAA5B,AAAe,4BAAO,KAAK;;;IAGjC;gBAG4B,OAAc,WAAmB;;AACd,sFACzC,KAAK,eAAL,OAAO,gCAAP,OAAqB;AACX,qBAAiB,kBAAY,KAAK,EAAE,SAAS,EAAE,OAAO;AACvB,yFACzC,QAAQ,iBAAR,OAAU,mCAAV,OAAwB;AAG5B,UAAI,AAAc,aAAD;AACe,QAA9B,AAAc,aAAD,aAAa;;AAI5B,UAAkB,aAAd,aAAa,EAAI,aAAa,KAC9B,AAAc,aAAD,YACb,AAAc,aAAD;AACwC,QAAvD,AAAc,aAAD,gBAAgB,AAAc,aAAD;;AAG5C,YAAO,SAAQ;IACjB;gBAGyB;AACvB,YAAO,AAAM,KAAD;AACZ,YAAO,AAAM,AAAK,KAAN;AACZ,qBAAO,AAAe,iCAAY,AAAM,KAAD;AACN,MAAjC,AAAe,4BAAO,AAAM,KAAD;AACH,MAAlB,kBAAY,KAAK;IACzB;gBAG2B;AACf,kBAAQ,AAAa,0BAAQ,KAAK;AAC5C,YAAO,AAA6B;AACpC,YAAa,aAAN,KAAK,KAAI;AAYd,MAXF,AAAM,sBAAW,MAAM;AACrB,uBAAO,AAAe,iCAAY,KAAK;AACvC;AACsC,UAApC,qCAA+B,KAAK;AACtB,uBAAS,iBAAY,AAAc,0BAAC,KAAK,GAAG,MAAM,KAAK;AACrE,gBAAO,AAAO,MAAD;;AAEsB,UAAnC,qCAA+B;;AAEL,QAA5B,AAAe,4BAAO,KAAK;AAC3B,aAAO,WAAC,AAAe,iCAAY,KAAK;;IAE5C;kCAGM,YACA,WACG,qBACA;AAEG,uBAAkB;AAC5B,UAAI,AAAW,UAAD,UAAU;AACxB,UAAI,AAAU,SAAD,KAAe,aAAX,UAAU,IAAG,GAAG,MAAO,qBAAoB;AAClD,yBAAyB,AAAa,aAAvB,SAAS,iBAAG,UAAU,IAAG;AACrC,0BACoC,CAAvB,aAArB,oBAAoB,iBAAG,mBAAmB,KAAI,YAAY;AACrD,2BAA4B,AAAY,aAAvB,UAAU,iBAAG,SAAS,IAAG;AACpD,YAA4B,cAArB,oBAAoB,IAAG,AAAc,aAAD,GAAG,cAAc;IAC9D;4BAIoB;;UACd;UACA;UACG;UACA;AAEP,WAAO,AAAO,oCACR,WAAW,EACX,UAAU,EACV,SAAS,EACT,mBAAmB,EACnB,oBAAoB;YALZ,cAOV,kCACE,UAAU,EACV,SAAS,EACT,mBAAmB,EACnB,oBAAoB;IAE5B;;AAGsB,YAAA,AAAO,AAAS;IAAmB;;AAIvD,qBAAO;IACT;;;AAIE,qBAAO;AACG,wBAAuC,KAA1B,AAAe,iCAAA,aAAc;AAC1C,uBAAqC,MAAzB,AAAe,gCAAA,cAAa;AACI,MAAtD,AAAO,AAAS,qCAAgB,UAAU,EAAE,SAAS;IACvD;;AAME,YAAO,AAA6B;AACpC,YAAO;IACT;kBAG6B;AAC3B,YAAO,AAA6B;AACS,2EACzC,AAAM,KAAD;AAC2C,MAApD,AAAgB,eAAD,SAAS;IAC1B;oBAK0B;AACH,MAArB,sBAAgB,KAAK;IACvB;4BAGoD,OAAW;2BAAX;kBAAW;AAC7D,YAAO,AAAK,IAAD;AACX,YAAO,AAA6B,sCAAG,IAAI;AAC3C,qBAAO,AAAa,qCAAmB,KAAK;AACM,MAAlD,AAAY,uBAAC,sDAAgC,KAAK;AAClD,qBAAO,AAKN;AAJ8C,6EACzC,AAAM,KAAD;AACT,cAAO,AAAK,IAAD,IAAI,AAAgB,eAAD;AAC9B,cAAO;;IAEX;0BAGkD,OAAW;2BAAX;kBAAW;AAG3D,WAAO;IACT;;2BAGoD;AAClD,YAAO,AAA6B;AACa,MAAjD,AAAa,yBAAO;IACtB;kBAGkC;AAGhC,WAAO,WAAC,AAAe,AAAO,kCAAI,QAAS,SAAU,AAAM,KAAD;AACX,MAA/C,AAAe,AAAO,AAAS,iDAAQ,OAAO;IAChD;8BAG8C;AAmBzB,MAlBnB,AAAe,AAAO,AAkBnB,oCAlByB,QAAS;AACG,iEAClC,AAAM,AAAa,KAAd;AACF;AACP,gBAAQ,AAAa,AAAY;;;AAEoB,YAAjD,aAAa,AAAM,AAAa,AAAY,KAA1B;AAClB;;;;AAEkD,YAAlD,aAAa,AAAM,AAAa,AAAY,KAA1B;AAClB;;;AAGJ,cAA+B,AAE2B,cAFnD,AAAW,UAAD,iBAC6B,aAAtC,AAAa,AAAY,2DACrB,AAAa,AAAY,uDACT,AAAa,aAArC,AAAW,UAAD,8BAAgB,UAAU,iBAChC,AAAa,AAAY;yCACxB,OAAO;IACpB;;+DA7QuE;IA2BhD,sBAAoB;IACV,uBACzB;IAiKJ;IAgBC,sBAAgB;AA7Mf,0EAAM,MAAM;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAide;;;;;;uBAGwB;AACd,gEAAU,OAAO;AAC3D,YAAW,wEACO,OAAO,gBAAgB;IAC3C;uBAIiB;wCAAmC;AACV,MAAxC,AAAa,YAAD,gBAAgB;IAC9B;4BAIoB,aACd,YACA,WACG,qBACA;AAEP,YAAa,+BACX,WAAW,EACX,UAAU,EACV,SAAS,EACT,mBAAmB,EACnB,oBAAoB;IAExB;;;QA1KM;QAC0B;QACf;;;AACZ,gEAAW,GAAG,YAAY,QAAQ;;EAAC;;;QAYlC;QACU;QACP;QACA;QACM;QACO;;IACH,sBAAM,kGACD,cAAc,mBACb,eAAe,oBACd,gBAAgB,wBACZ,QAAC,KAAM,AAAc,cAAA,QAAC,CAAC,wDACzB,cAAc,eAAd,OAAgB;AAEtC,gEACS,GAAG,YACM,uCAAwB,QAAQ,2BAClB;;EAAM;;QAiBtC;QACU;QACwB;QACP;QACjB;QACP;QACA;;IACU,sBAAM,kGACD,cAAc,mBACb,eAAe,oBACd,gBAAgB,wBACZ,oBAAoB,sBACtB,SAAS;AAE/B,gEACO,GAAG,YACE,0CACR,WAAW,eACC,SAAS,0BACG,4BACF;;EAEzB;;;QAYD;QACa;QACV;QACA;QACM;QACO;;IACH,sBAAM,qGACG,kBAAkB,mBACrB,eAAe,oBACd,gBAAgB,wBACZ,QAAC,KAAM,AAAc,cAAA,QAAC,CAAC,wDACzB,cAAc,eAAd,OAAgB;AAEtC,gEACS,GAAG,YACM,uCAAwB,QAAQ,2BAClB;;EAAM;;QAiBtC;QACa;QACqB;QACP;QACjB;QACP;QACA;;IACU,sBAAM,qGACG,kBAAkB,mBACrB,eAAe,oBACd,gBAAgB,wBACZ,oBAAoB,sBACtB,SAAS;AAE/B,gEACO,GAAG,YACE,0CACR,WAAW,eACC,SAAS,0BACG,4BACF;;EAEzB","file":"../../../../../../../../../../../../../D:/packages/flutter_staggered_grid_view/src/widgets/sliver.dart.lib.js"}');
+  // Exports:
+  return {
+    src__widgets__sliver: sliver$0
+  };
+}));
+
+//# sourceMappingURL=sliver.dart.lib.js.map

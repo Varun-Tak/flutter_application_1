@@ -1,0 +1,741 @@
+define(['dart_sdk', 'packages/flutter_staggered_grid_view/src/widgets/staggered_tile.dart', 'packages/flutter/src/rendering/sliver_grid.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter_staggered_grid_view/src/rendering/sliver_variable_size_box_adaptor.dart', 'packages/flutter/src/painting/basic_types.dart'], (function load__packages__flutter_staggered_grid_view__src__rendering__sliver_staggered_grid_dart(dart_sdk, packages__flutter_staggered_grid_view__src__widgets__staggered_tile$46dart, packages__flutter__src__rendering__sliver_grid$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter_staggered_grid_view__src__rendering__sliver_variable_size_box_adaptor$46dart, packages__flutter__src__painting__basic_types$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _js_helper = dart_sdk._js_helper;
+  const collection = dart_sdk.collection;
+  const math = dart_sdk.math;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const staggered_tile = packages__flutter_staggered_grid_view__src__widgets__staggered_tile$46dart.src__widgets__staggered_tile;
+  const sliver_grid = packages__flutter__src__rendering__sliver_grid$46dart.src__rendering__sliver_grid;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const sliver_variable_size_box_adaptor = packages__flutter_staggered_grid_view__src__rendering__sliver_variable_size_box_adaptor$46dart.src__rendering__sliver_variable_size_box_adaptor;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  var sliver_staggered_grid = Object.create(dart.library);
+  var $clamp = dartx.clamp;
+  var $toString = dartx.toString;
+  var $truncate = dartx.truncate;
+  var $putIfAbsent = dartx.putIfAbsent;
+  var $toList = dartx.toList;
+  var $any = dartx.any;
+  var $contains = dartx.contains;
+  var $_set = dartx._set;
+  var $reduce = dartx.reduce;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  var $ceil = dartx.ceil;
+  var $abs = dartx.abs;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    ListOfdoubleL: () => (T.ListOfdoubleL = dart.constFn(core.List$(T.doubleL())))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    intLTodoubleL: () => (T.intLTodoubleL = dart.constFn(dart.fnType(T.doubleL(), [T.intL()])))(),
+    _ViewportOffsetsL: () => (T._ViewportOffsetsL = dart.constFn(dart.legacy(sliver_staggered_grid._ViewportOffsets)))(),
+    SplayTreeMapOfintL$_ViewportOffsetsL: () => (T.SplayTreeMapOfintL$_ViewportOffsetsL = dart.constFn(collection.SplayTreeMap$(T.intL(), T._ViewportOffsetsL())))(),
+    SplayTreeMapLOfintL$_ViewportOffsetsL: () => (T.SplayTreeMapLOfintL$_ViewportOffsetsL = dart.constFn(dart.legacy(T.SplayTreeMapOfintL$_ViewportOffsetsL())))(),
+    IdentityMapOfdoubleL$SplayTreeMapLOfintL$_ViewportOffsetsL: () => (T.IdentityMapOfdoubleL$SplayTreeMapLOfintL$_ViewportOffsetsL = dart.constFn(_js_helper.IdentityMap$(T.doubleL(), T.SplayTreeMapLOfintL$_ViewportOffsetsL())))(),
+    RenderObjectL: () => (T.RenderObjectL = dart.constFn(dart.legacy(object.RenderObject)))(),
+    SliverVariableSizeBoxAdaptorParentDataL: () => (T.SliverVariableSizeBoxAdaptorParentDataL = dart.constFn(dart.legacy(sliver_variable_size_box_adaptor.SliverVariableSizeBoxAdaptorParentData)))(),
+    VoidToSplayTreeMapLOfintL$_ViewportOffsetsL: () => (T.VoidToSplayTreeMapLOfintL$_ViewportOffsetsL = dart.constFn(dart.fnType(T.SplayTreeMapLOfintL$_ViewportOffsetsL(), [])))(),
+    _IdentityHashSetOfintL: () => (T._IdentityHashSetOfintL = dart.constFn(collection._IdentityHashSet$(T.intL())))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    doubleLToboolL: () => (T.doubleLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.doubleL()])))(),
+    TAndTToT: () => (T.TAndTToT = dart.constFn(dart.gFnType(T => [T, [T, T]], T => [core.num])))(),
+    SliverStaggeredGridDelegateWithFixedCrossAxisCountL: () => (T.SliverStaggeredGridDelegateWithFixedCrossAxisCountL = dart.constFn(dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount)))(),
+    SliverStaggeredGridDelegateWithMaxCrossAxisExtentL: () => (T.SliverStaggeredGridDelegateWithMaxCrossAxisExtentL = dart.constFn(dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.fn(math.max, T.TAndTToT());
+    }
+  }, false);
+  var C = [void 0];
+  var I = [
+    "file:///C:/Users/91935/Downloads/flutter_windows_2.0.4-stable/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_staggered_grid_view-0.3.4/lib/src/rendering/sliver_staggered_grid.dart",
+    "package:flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart"
+  ];
+  var crossAxisCount$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.crossAxisCount");
+  var cellExtent$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.cellExtent");
+  var mainAxisSpacing$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.mainAxisSpacing");
+  var crossAxisSpacing$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.crossAxisSpacing");
+  var staggeredTileBuilder$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.staggeredTileBuilder");
+  var staggeredTileCount$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.staggeredTileCount");
+  var reverseCrossAxis$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.reverseCrossAxis");
+  var cellStride = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.cellStride");
+  var mainAxisOffsetsCacheSize$ = dart.privateName(sliver_staggered_grid, "StaggeredGridConfiguration.mainAxisOffsetsCacheSize");
+  var _normalizeStaggeredTile = dart.privateName(sliver_staggered_grid, "_normalizeStaggeredTile");
+  var _getStaggeredTileMainAxisExtent = dart.privateName(sliver_staggered_grid, "_getStaggeredTileMainAxisExtent");
+  sliver_staggered_grid.StaggeredGridConfiguration = class StaggeredGridConfiguration extends core.Object {
+    get crossAxisCount() {
+      return this[crossAxisCount$];
+    }
+    set crossAxisCount(value) {
+      super.crossAxisCount = value;
+    }
+    get cellExtent() {
+      return this[cellExtent$];
+    }
+    set cellExtent(value) {
+      super.cellExtent = value;
+    }
+    get mainAxisSpacing() {
+      return this[mainAxisSpacing$];
+    }
+    set mainAxisSpacing(value) {
+      super.mainAxisSpacing = value;
+    }
+    get crossAxisSpacing() {
+      return this[crossAxisSpacing$];
+    }
+    set crossAxisSpacing(value) {
+      super.crossAxisSpacing = value;
+    }
+    get staggeredTileBuilder() {
+      return this[staggeredTileBuilder$];
+    }
+    set staggeredTileBuilder(value) {
+      super.staggeredTileBuilder = value;
+    }
+    get staggeredTileCount() {
+      return this[staggeredTileCount$];
+    }
+    set staggeredTileCount(value) {
+      super.staggeredTileCount = value;
+    }
+    get reverseCrossAxis() {
+      return this[reverseCrossAxis$];
+    }
+    set reverseCrossAxis(value) {
+      super.reverseCrossAxis = value;
+    }
+    get cellStride() {
+      return this[cellStride];
+    }
+    set cellStride(value) {
+      super.cellStride = value;
+    }
+    get mainAxisOffsetsCacheSize() {
+      return this[mainAxisOffsetsCacheSize$];
+    }
+    set mainAxisOffsetsCacheSize(value) {
+      super.mainAxisOffsetsCacheSize = value;
+    }
+    generateMainAxisOffsets() {
+      return T.ListOfdoubleL().generate(this.crossAxisCount, dart.fn(i => 0.0, T.intLTodoubleL()));
+    }
+    getStaggeredTile(index) {
+      let t0;
+      let tile = null;
+      if (this.staggeredTileCount == null || dart.notNull(index) < dart.notNull(this.staggeredTileCount)) {
+        tile = this[_normalizeStaggeredTile]((t0 = index, this.staggeredTileBuilder(t0)));
+      }
+      return tile;
+    }
+    [_getStaggeredTileMainAxisExtent](tile) {
+      let t0;
+      t0 = tile.mainAxisExtent;
+      return t0 == null ? dart.notNull(tile.mainAxisCellCount) * dart.notNull(this.cellExtent) + (dart.notNull(tile.mainAxisCellCount) - 1) * dart.notNull(this.mainAxisSpacing) : t0;
+    }
+    [_normalizeStaggeredTile](staggeredTile) {
+      if (staggeredTile == null) {
+        return null;
+      } else {
+        let crossAxisCellCount = dart.asNullableInt(staggeredTile.crossAxisCellCount[$clamp](0, this.crossAxisCount));
+        if (dart.test(staggeredTile.fitContent)) {
+          return new staggered_tile.StaggeredTile.fit(crossAxisCellCount);
+        } else {
+          return new staggered_tile.StaggeredTile.extent(crossAxisCellCount, this[_getStaggeredTileMainAxisExtent](staggeredTile));
+        }
+      }
+    }
+  };
+  (sliver_staggered_grid.StaggeredGridConfiguration.new = function(opts) {
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    let staggeredTileBuilder = opts && 'staggeredTileBuilder' in opts ? opts.staggeredTileBuilder : null;
+    let cellExtent = opts && 'cellExtent' in opts ? opts.cellExtent : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : null;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : null;
+    let reverseCrossAxis = opts && 'reverseCrossAxis' in opts ? opts.reverseCrossAxis : null;
+    let staggeredTileCount = opts && 'staggeredTileCount' in opts ? opts.staggeredTileCount : null;
+    let mainAxisOffsetsCacheSize = opts && 'mainAxisOffsetsCacheSize' in opts ? opts.mainAxisOffsetsCacheSize : 3;
+    this[crossAxisCount$] = crossAxisCount;
+    this[staggeredTileBuilder$] = staggeredTileBuilder;
+    this[cellExtent$] = cellExtent;
+    this[mainAxisSpacing$] = mainAxisSpacing;
+    this[crossAxisSpacing$] = crossAxisSpacing;
+    this[reverseCrossAxis$] = reverseCrossAxis;
+    this[staggeredTileCount$] = staggeredTileCount;
+    this[mainAxisOffsetsCacheSize$] = mainAxisOffsetsCacheSize;
+    if (!(crossAxisCount != null && dart.notNull(crossAxisCount) > 0)) dart.assertFailed(null, I[0], 26, 16, "crossAxisCount != null && crossAxisCount > 0");
+    if (!(staggeredTileBuilder != null)) dart.assertFailed(null, I[0], 27, 16, "staggeredTileBuilder != null");
+    if (!(cellExtent != null && dart.notNull(cellExtent) >= 0)) dart.assertFailed(null, I[0], 28, 16, "cellExtent != null && cellExtent >= 0");
+    if (!(mainAxisSpacing != null && dart.notNull(mainAxisSpacing) >= 0)) dart.assertFailed(null, I[0], 29, 16, "mainAxisSpacing != null && mainAxisSpacing >= 0");
+    if (!(crossAxisSpacing != null && dart.notNull(crossAxisSpacing) >= 0)) dart.assertFailed(null, I[0], 30, 16, "crossAxisSpacing != null && crossAxisSpacing >= 0");
+    if (!(mainAxisOffsetsCacheSize != null && dart.notNull(mainAxisOffsetsCacheSize) > 0)) dart.assertFailed(null, I[0], 32, 13, "mainAxisOffsetsCacheSize != null && mainAxisOffsetsCacheSize > 0");
+    this[cellStride] = dart.notNull(cellExtent) + dart.notNull(crossAxisSpacing);
+    ;
+  }).prototype = sliver_staggered_grid.StaggeredGridConfiguration.prototype;
+  dart.addTypeTests(sliver_staggered_grid.StaggeredGridConfiguration);
+  dart.addTypeCaches(sliver_staggered_grid.StaggeredGridConfiguration);
+  dart.setMethodSignature(sliver_staggered_grid.StaggeredGridConfiguration, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid.StaggeredGridConfiguration.__proto__),
+    generateMainAxisOffsets: dart.fnType(dart.legacy(core.List$(dart.legacy(core.double))), []),
+    getStaggeredTile: dart.fnType(dart.legacy(staggered_tile.StaggeredTile), [dart.legacy(core.int)]),
+    [_getStaggeredTileMainAxisExtent]: dart.fnType(dart.legacy(core.double), [dart.legacy(staggered_tile.StaggeredTile)]),
+    [_normalizeStaggeredTile]: dart.fnType(dart.legacy(staggered_tile.StaggeredTile), [dart.legacy(staggered_tile.StaggeredTile)])
+  }));
+  dart.setLibraryUri(sliver_staggered_grid.StaggeredGridConfiguration, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid.StaggeredGridConfiguration, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid.StaggeredGridConfiguration.__proto__),
+    crossAxisCount: dart.finalFieldType(dart.legacy(core.int)),
+    cellExtent: dart.finalFieldType(dart.legacy(core.double)),
+    mainAxisSpacing: dart.finalFieldType(dart.legacy(core.double)),
+    crossAxisSpacing: dart.finalFieldType(dart.legacy(core.double)),
+    staggeredTileBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(staggered_tile.StaggeredTile), [dart.legacy(core.int)]))),
+    staggeredTileCount: dart.finalFieldType(dart.legacy(core.int)),
+    reverseCrossAxis: dart.finalFieldType(dart.legacy(core.bool)),
+    cellStride: dart.finalFieldType(dart.legacy(core.double)),
+    mainAxisOffsetsCacheSize: dart.finalFieldType(dart.legacy(core.int))
+  }));
+  var index$ = dart.privateName(sliver_staggered_grid, "_Block.index");
+  var crossAxisCount$0 = dart.privateName(sliver_staggered_grid, "_Block.crossAxisCount");
+  var minOffset$ = dart.privateName(sliver_staggered_grid, "_Block.minOffset");
+  var maxOffset$ = dart.privateName(sliver_staggered_grid, "_Block.maxOffset");
+  sliver_staggered_grid._Block = class _Block extends core.Object {
+    get index() {
+      return this[index$];
+    }
+    set index(value) {
+      super.index = value;
+    }
+    get crossAxisCount() {
+      return this[crossAxisCount$0];
+    }
+    set crossAxisCount(value) {
+      super.crossAxisCount = value;
+    }
+    get minOffset() {
+      return this[minOffset$];
+    }
+    set minOffset(value) {
+      super.minOffset = value;
+    }
+    get maxOffset() {
+      return this[maxOffset$];
+    }
+    set maxOffset(value) {
+      super.maxOffset = value;
+    }
+  };
+  (sliver_staggered_grid._Block.new = function(index, crossAxisCount, minOffset, maxOffset) {
+    this[index$] = index;
+    this[crossAxisCount$0] = crossAxisCount;
+    this[minOffset$] = minOffset;
+    this[maxOffset$] = maxOffset;
+    ;
+  }).prototype = sliver_staggered_grid._Block.prototype;
+  dart.addTypeTests(sliver_staggered_grid._Block);
+  dart.addTypeCaches(sliver_staggered_grid._Block);
+  dart.setLibraryUri(sliver_staggered_grid._Block, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid._Block, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid._Block.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    crossAxisCount: dart.finalFieldType(dart.legacy(core.int)),
+    minOffset: dart.finalFieldType(dart.legacy(core.double)),
+    maxOffset: dart.finalFieldType(dart.legacy(core.double))
+  }));
+  var crossAxisCellCount$ = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridGeometry.crossAxisCellCount");
+  var blockIndex$ = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridGeometry.blockIndex");
+  sliver_staggered_grid.SliverStaggeredGridGeometry = class SliverStaggeredGridGeometry extends sliver_grid.SliverGridGeometry {
+    get crossAxisCellCount() {
+      return this[crossAxisCellCount$];
+    }
+    set crossAxisCellCount(value) {
+      super.crossAxisCellCount = value;
+    }
+    get blockIndex() {
+      return this[blockIndex$];
+    }
+    set blockIndex(value) {
+      super.blockIndex = value;
+    }
+    get hasTrailingScrollOffset() {
+      return this.mainAxisExtent != null;
+    }
+    copyWith(opts) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3;
+      let scrollOffset = opts && 'scrollOffset' in opts ? opts.scrollOffset : null;
+      let crossAxisOffset = opts && 'crossAxisOffset' in opts ? opts.crossAxisOffset : null;
+      let mainAxisExtent = opts && 'mainAxisExtent' in opts ? opts.mainAxisExtent : null;
+      let crossAxisExtent = opts && 'crossAxisExtent' in opts ? opts.crossAxisExtent : null;
+      let crossAxisCellCount = opts && 'crossAxisCellCount' in opts ? opts.crossAxisCellCount : null;
+      let blockIndex = opts && 'blockIndex' in opts ? opts.blockIndex : null;
+      return new sliver_staggered_grid.SliverStaggeredGridGeometry.new({scrollOffset: (t0 = scrollOffset, t0 == null ? this.scrollOffset : t0), crossAxisOffset: (t0$ = crossAxisOffset, t0$ == null ? this.crossAxisOffset : t0$), mainAxisExtent: (t0$0 = mainAxisExtent, t0$0 == null ? this.mainAxisExtent : t0$0), crossAxisExtent: (t0$1 = crossAxisExtent, t0$1 == null ? this.crossAxisExtent : t0$1), crossAxisCellCount: (t0$2 = crossAxisCellCount, t0$2 == null ? this.crossAxisCellCount : t0$2), blockIndex: (t0$3 = blockIndex, t0$3 == null ? this.blockIndex : t0$3)});
+    }
+    getBoxConstraints(constraints) {
+      let t0, t0$;
+      return constraints.asBoxConstraints({minExtent: (t0 = this.mainAxisExtent, t0 == null ? 0.0 : t0), maxExtent: (t0$ = this.mainAxisExtent, t0$ == null ? 1 / 0 : t0$), crossAxisExtent: this.crossAxisExtent});
+    }
+    toString() {
+      return "SliverStaggeredGridGeometry(" + "scrollOffset: " + dart.str(this.scrollOffset) + ", " + "crossAxisOffset: " + dart.str(this.crossAxisOffset) + ", " + "mainAxisExtent: " + dart.str(this.mainAxisExtent) + ", " + "crossAxisExtent: " + dart.str(this.crossAxisExtent) + ", " + "crossAxisCellCount: " + dart.str(this.crossAxisCellCount) + ", " + "startIndex: " + dart.str(this.blockIndex) + ")";
+    }
+  };
+  (sliver_staggered_grid.SliverStaggeredGridGeometry.new = function(opts) {
+    let scrollOffset = opts && 'scrollOffset' in opts ? opts.scrollOffset : null;
+    let crossAxisOffset = opts && 'crossAxisOffset' in opts ? opts.crossAxisOffset : null;
+    let mainAxisExtent = opts && 'mainAxisExtent' in opts ? opts.mainAxisExtent : null;
+    let crossAxisExtent = opts && 'crossAxisExtent' in opts ? opts.crossAxisExtent : null;
+    let crossAxisCellCount = opts && 'crossAxisCellCount' in opts ? opts.crossAxisCellCount : null;
+    let blockIndex = opts && 'blockIndex' in opts ? opts.blockIndex : null;
+    this[crossAxisCellCount$] = crossAxisCellCount;
+    this[blockIndex$] = blockIndex;
+    sliver_staggered_grid.SliverStaggeredGridGeometry.__proto__.new.call(this, {scrollOffset: core.double.as(scrollOffset), crossAxisOffset: core.double.as(crossAxisOffset), mainAxisExtent: core.double.as(mainAxisExtent), crossAxisExtent: core.double.as(crossAxisExtent)});
+    ;
+  }).prototype = sliver_staggered_grid.SliverStaggeredGridGeometry.prototype;
+  dart.addTypeTests(sliver_staggered_grid.SliverStaggeredGridGeometry);
+  dart.addTypeCaches(sliver_staggered_grid.SliverStaggeredGridGeometry);
+  dart.setMethodSignature(sliver_staggered_grid.SliverStaggeredGridGeometry, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid.SliverStaggeredGridGeometry.__proto__),
+    copyWith: dart.fnType(dart.legacy(sliver_staggered_grid.SliverStaggeredGridGeometry), [], {blockIndex: dart.legacy(core.int), crossAxisCellCount: dart.legacy(core.int), crossAxisExtent: dart.legacy(core.double), crossAxisOffset: dart.legacy(core.double), mainAxisExtent: dart.legacy(core.double), scrollOffset: dart.legacy(core.double)}, {}),
+    getBoxConstraints: dart.fnType(dart.legacy(box.BoxConstraints), [dart.legacy(sliver.SliverConstraints)]),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setGetterSignature(sliver_staggered_grid.SliverStaggeredGridGeometry, () => ({
+    __proto__: dart.getGetters(sliver_staggered_grid.SliverStaggeredGridGeometry.__proto__),
+    hasTrailingScrollOffset: dart.legacy(core.bool)
+  }));
+  dart.setLibraryUri(sliver_staggered_grid.SliverStaggeredGridGeometry, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid.SliverStaggeredGridGeometry, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid.SliverStaggeredGridGeometry.__proto__),
+    crossAxisCellCount: dart.finalFieldType(dart.legacy(core.int)),
+    blockIndex: dart.finalFieldType(dart.legacy(core.int))
+  }));
+  dart.defineExtensionMethods(sliver_staggered_grid.SliverStaggeredGridGeometry, ['toString']);
+  var _gridDelegate = dart.privateName(sliver_staggered_grid, "_gridDelegate");
+  var _pageSizeToViewportOffsets = dart.privateName(sliver_staggered_grid, "_pageSizeToViewportOffsets");
+  sliver_staggered_grid.RenderSliverStaggeredGrid = class RenderSliverStaggeredGrid extends sliver_variable_size_box_adaptor.RenderSliverVariableSizeBoxAdaptor {
+    setupParentData(child) {
+      T.RenderObjectL().as(child);
+      if (!T.SliverVariableSizeBoxAdaptorParentDataL().is(child.parentData)) {
+        let data = new sliver_variable_size_box_adaptor.SliverVariableSizeBoxAdaptorParentData.new();
+        child.parentData = data;
+      }
+    }
+    get gridDelegate() {
+      return this[_gridDelegate];
+    }
+    set gridDelegate(value) {
+      if (!(value != null)) dart.assertFailed(null, I[0], 237, 12, "value != null");
+      if (dart.equals(this[_gridDelegate], value)) return;
+      if (!dart.equals(dart.runtimeType(value), dart.runtimeType(this[_gridDelegate])) || dart.test(value.shouldRelayout(this[_gridDelegate]))) this.markNeedsLayout();
+      this[_gridDelegate] = value;
+    }
+    performLayout() {
+      this.childManager.didStartLayout();
+      this.childManager.setDidUnderflow(false);
+      let scrollOffset = dart.notNull(this.constraints.scrollOffset) + dart.notNull(this.constraints.cacheOrigin);
+      if (!(scrollOffset >= 0.0)) dart.assertFailed(null, I[0], 254, 12, "scrollOffset >= 0.0");
+      let remainingExtent = this.constraints.remainingCacheExtent;
+      if (!(dart.notNull(remainingExtent) >= 0.0)) dart.assertFailed(null, I[0], 256, 12, "remainingExtent >= 0.0");
+      let targetEndScrollOffset = scrollOffset + dart.notNull(remainingExtent);
+      let reachedEnd = false;
+      let trailingScrollOffset = 0.0;
+      let leadingScrollOffset = 1 / 0;
+      let visible = false;
+      let firstIndex = 0;
+      let lastIndex = 0;
+      let configuration = this[_gridDelegate].getConfiguration(this.constraints);
+      let pageSize = dart.notNull(configuration.mainAxisOffsetsCacheSize) * dart.notNull(this.constraints.viewportMainAxisExtent);
+      if (pageSize === 0.0) {
+        this.geometry = sliver.SliverGeometry.zero;
+        this.childManager.didFinishLayout();
+        return;
+      }
+      let pageIndex = (scrollOffset / pageSize)[$truncate]();
+      if (!(pageIndex >= 0)) dart.assertFailed(null, I[0], 277, 12, "pageIndex >= 0");
+      let viewportOffsets = this[_pageSizeToViewportOffsets][$putIfAbsent](pageSize, dart.fn(() => new (T.SplayTreeMapOfintL$_ViewportOffsetsL()).new(), T.VoidToSplayTreeMapLOfintL$_ViewportOffsetsL()));
+      let viewportOffset = null;
+      if (dart.test(viewportOffsets.isEmpty)) {
+        viewportOffset = new sliver_staggered_grid._ViewportOffsets.new(configuration.generateMainAxisOffsets(), pageSize);
+        viewportOffsets._set(0, viewportOffset);
+      } else {
+        let smallestKey = viewportOffsets.lastKeyBefore(pageIndex + 1);
+        viewportOffset = viewportOffsets._get(smallestKey);
+      }
+      let mainAxisOffsets = viewportOffset.mainAxisOffsets[$toList]();
+      let visibleIndices = new (T._IdentityHashSetOfintL()).new();
+      for (let index = viewportOffset.firstChildIndex; dart.test(mainAxisOffsets[$any](dart.fn(o => dart.notNull(o) <= targetEndScrollOffset, T.doubleLToboolL()))); index = dart.notNull(index) + 1) {
+        let geometry = sliver_staggered_grid.RenderSliverStaggeredGrid.getSliverStaggeredGeometry(index, configuration, mainAxisOffsets);
+        if (geometry == null) {
+          reachedEnd = true;
+          break;
+        }
+        let hasTrailingScrollOffset = geometry.hasTrailingScrollOffset;
+        let child = null;
+        if (!dart.test(hasTrailingScrollOffset)) {
+          let constraints = new box.BoxConstraints.tightFor({width: geometry.crossAxisExtent});
+          child = this.addAndLayoutChild(index, constraints, {parentUsesSize: true});
+          geometry = geometry.copyWith({mainAxisExtent: this.paintExtentOf(child)});
+        }
+        if (!visible && targetEndScrollOffset >= dart.notNull(geometry.scrollOffset) && scrollOffset <= dart.notNull(geometry.trailingScrollOffset)) {
+          visible = true;
+          leadingScrollOffset = geometry.scrollOffset;
+          firstIndex = index;
+        }
+        if (visible && dart.test(hasTrailingScrollOffset)) {
+          child = this.addAndLayoutChild(index, geometry.getBoxConstraints(this.constraints));
+        }
+        if (child != null) {
+          let childParentData = T.SliverVariableSizeBoxAdaptorParentDataL().as(child.parentData);
+          childParentData.layoutOffset = geometry.scrollOffset;
+          childParentData.crossAxisOffset = geometry.crossAxisOffset;
+          if (!(childParentData.index == index)) dart.assertFailed(null, I[0], 338, 16, "childParentData.index == index");
+        }
+        if (visible && dart.test(this.indices[$contains](index))) {
+          visibleIndices.add(index);
+        }
+        if (dart.notNull(geometry.trailingScrollOffset) >= dart.notNull(viewportOffset.trailingScrollOffset)) {
+          let nextPageIndex = dart.notNull(viewportOffset.pageIndex) + 1;
+          let nextViewportOffset = new sliver_staggered_grid._ViewportOffsets.new(mainAxisOffsets, (nextPageIndex + 1) * pageSize, nextPageIndex, index);
+          viewportOffsets._set(nextPageIndex, nextViewportOffset);
+          viewportOffset = nextViewportOffset;
+        }
+        let endOffset = dart.notNull(geometry.trailingScrollOffset) + dart.notNull(configuration.mainAxisSpacing);
+        for (let i = 0; i < dart.notNull(geometry.crossAxisCellCount); i = i + 1) {
+          mainAxisOffsets[$_set](i + dart.notNull(geometry.blockIndex), endOffset);
+        }
+        trailingScrollOffset = mainAxisOffsets[$reduce](dart.gbind(C[0] || CT.C0, T.doubleL()));
+        lastIndex = index;
+      }
+      this.collectGarbage(visibleIndices);
+      if (!visible) {
+        if (scrollOffset > dart.notNull(viewportOffset.trailingScrollOffset)) {
+          let viewportOffsetScrollOffset = pageSize * dart.notNull(viewportOffset.pageIndex);
+          let correction = viewportOffsetScrollOffset - scrollOffset;
+          this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: correction});
+        } else {
+          this.geometry = sliver.SliverGeometry.zero;
+          this.childManager.didFinishLayout();
+        }
+        return;
+      }
+      let estimatedMaxScrollOffset = null;
+      if (reachedEnd) {
+        estimatedMaxScrollOffset = trailingScrollOffset;
+      } else {
+        estimatedMaxScrollOffset = this.childManager.estimateMaxScrollOffset(this.constraints, {firstIndex: firstIndex, lastIndex: lastIndex, leadingScrollOffset: leadingScrollOffset, trailingScrollOffset: trailingScrollOffset});
+        if (!(dart.notNull(estimatedMaxScrollOffset) >= dart.notNull(trailingScrollOffset) - dart.notNull(leadingScrollOffset))) dart.assertFailed(null, I[0], 392, 14, "estimatedMaxScrollOffset >=\r\n          trailingScrollOffset - leadingScrollOffset");
+      }
+      let paintExtent = this.calculatePaintOffset(this.constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
+      let cacheExtent = this.calculateCacheOffset(this.constraints, {from: leadingScrollOffset, to: trailingScrollOffset});
+      this.geometry = new sliver.SliverGeometry.new({scrollExtent: estimatedMaxScrollOffset, paintExtent: paintExtent, cacheExtent: cacheExtent, maxPaintExtent: estimatedMaxScrollOffset, hasVisualOverflow: dart.notNull(trailingScrollOffset) > targetEndScrollOffset || dart.notNull(this.constraints.scrollOffset) > 0.0});
+      if (estimatedMaxScrollOffset == trailingScrollOffset) this.childManager.setDidUnderflow(true);
+      this.childManager.didFinishLayout();
+    }
+    static getSliverStaggeredGeometry(index, configuration, offsets) {
+      let tile = configuration.getStaggeredTile(index);
+      if (tile == null) return null;
+      let block = sliver_staggered_grid.RenderSliverStaggeredGrid._findFirstAvailableBlockWithCrossAxisCount(tile.crossAxisCellCount, offsets);
+      let scrollOffset = block.minOffset;
+      let blockIndex = block.index;
+      if (dart.test(configuration.reverseCrossAxis)) {
+        blockIndex = dart.notNull(configuration.crossAxisCount) - dart.notNull(tile.crossAxisCellCount) - dart.notNull(blockIndex);
+      }
+      let crossAxisOffset = dart.notNull(blockIndex) * dart.notNull(configuration.cellStride);
+      let geometry = new sliver_staggered_grid.SliverStaggeredGridGeometry.new({scrollOffset: scrollOffset, crossAxisOffset: crossAxisOffset, mainAxisExtent: tile.mainAxisExtent, crossAxisExtent: dart.notNull(configuration.cellStride) * dart.notNull(tile.crossAxisCellCount) - dart.notNull(configuration.crossAxisSpacing), crossAxisCellCount: tile.crossAxisCellCount, blockIndex: block.index});
+      return geometry;
+    }
+    static _findFirstAvailableBlockWithCrossAxisCount(crossAxisCount, offsets) {
+      return sliver_staggered_grid.RenderSliverStaggeredGrid._findFirstAvailableBlockWithCrossAxisCountAndOffsets(crossAxisCount, T.ListOfdoubleL().from(offsets));
+    }
+    static _findFirstAvailableBlockWithCrossAxisCountAndOffsets(crossAxisCount, offsets) {
+      let block = sliver_staggered_grid.RenderSliverStaggeredGrid._findFirstAvailableBlock(offsets);
+      if (dart.notNull(block.crossAxisCount) < dart.notNull(crossAxisCount)) {
+        for (let i = 0; i < dart.notNull(block.crossAxisCount); i = i + 1) {
+          offsets[$_set](i + dart.notNull(block.index), block.maxOffset);
+        }
+        return sliver_staggered_grid.RenderSliverStaggeredGrid._findFirstAvailableBlockWithCrossAxisCountAndOffsets(crossAxisCount, offsets);
+      } else {
+        return block;
+      }
+    }
+    static _findFirstAvailableBlock(offsets) {
+      let index = 0;
+      let minBlockOffset = 1 / 0;
+      let maxBlockOffset = 1 / 0;
+      let crossAxisCount = 1;
+      let contiguous = false;
+      for (let i = index; i < dart.notNull(offsets[$length]); i = i + 1) {
+        let offset = offsets[$_get](i);
+        if (dart.notNull(offset) < dart.notNull(minBlockOffset) && !dart.test(sliver_staggered_grid._nearEqual(offset, minBlockOffset))) {
+          index = i;
+          maxBlockOffset = minBlockOffset;
+          minBlockOffset = offset;
+          crossAxisCount = 1;
+          contiguous = true;
+        } else if (dart.test(sliver_staggered_grid._nearEqual(offset, minBlockOffset)) && contiguous) {
+          crossAxisCount = crossAxisCount + 1;
+        } else if (dart.notNull(offset) < dart.notNull(maxBlockOffset) && dart.notNull(offset) > dart.notNull(minBlockOffset) && !dart.test(sliver_staggered_grid._nearEqual(offset, minBlockOffset))) {
+          contiguous = false;
+          maxBlockOffset = offset;
+        } else {
+          contiguous = false;
+        }
+      }
+      return new sliver_staggered_grid._Block.new(index, crossAxisCount, minBlockOffset, maxBlockOffset);
+    }
+  };
+  (sliver_staggered_grid.RenderSliverStaggeredGrid.new = function(opts) {
+    let childManager = opts && 'childManager' in opts ? opts.childManager : null;
+    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
+    if (!(gridDelegate != null)) dart.assertFailed(null, I[0], 216, 16, "gridDelegate != null");
+    this[_gridDelegate] = gridDelegate;
+    this[_pageSizeToViewportOffsets] = new (T.IdentityMapOfdoubleL$SplayTreeMapLOfintL$_ViewportOffsetsL()).new();
+    sliver_staggered_grid.RenderSliverStaggeredGrid.__proto__.new.call(this, {childManager: childManager});
+    ;
+  }).prototype = sliver_staggered_grid.RenderSliverStaggeredGrid.prototype;
+  dart.addTypeTests(sliver_staggered_grid.RenderSliverStaggeredGrid);
+  dart.addTypeCaches(sliver_staggered_grid.RenderSliverStaggeredGrid);
+  dart.setMethodSignature(sliver_staggered_grid.RenderSliverStaggeredGrid, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid.RenderSliverStaggeredGrid.__proto__),
+    performLayout: dart.fnType(dart.void, [])
+  }));
+  dart.setGetterSignature(sliver_staggered_grid.RenderSliverStaggeredGrid, () => ({
+    __proto__: dart.getGetters(sliver_staggered_grid.RenderSliverStaggeredGrid.__proto__),
+    gridDelegate: dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegate)
+  }));
+  dart.setSetterSignature(sliver_staggered_grid.RenderSliverStaggeredGrid, () => ({
+    __proto__: dart.getSetters(sliver_staggered_grid.RenderSliverStaggeredGrid.__proto__),
+    gridDelegate: dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegate)
+  }));
+  dart.setLibraryUri(sliver_staggered_grid.RenderSliverStaggeredGrid, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid.RenderSliverStaggeredGrid, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid.RenderSliverStaggeredGrid.__proto__),
+    [_gridDelegate]: dart.fieldType(dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegate)),
+    [_pageSizeToViewportOffsets]: dart.fieldType(dart.legacy(collection.HashMap$(dart.legacy(core.double), dart.legacy(collection.SplayTreeMap$(dart.legacy(core.int), dart.legacy(sliver_staggered_grid._ViewportOffsets))))))
+  }));
+  sliver_staggered_grid._ViewportOffsets = class _ViewportOffsets extends core.Object {
+    toString() {
+      return "[" + dart.str(this.pageIndex) + "-" + dart.str(this.trailingScrollOffset) + "] (" + dart.str(this.firstChildIndex) + ", " + dart.str(this.mainAxisOffsets) + ")";
+    }
+  };
+  (sliver_staggered_grid._ViewportOffsets.new = function(mainAxisOffsets, trailingScrollOffset, pageIndex = 0, firstChildIndex = 0) {
+    this.trailingScrollOffset = trailingScrollOffset;
+    this.pageIndex = pageIndex;
+    this.firstChildIndex = firstChildIndex;
+    this.mainAxisOffsets = T.ListOfdoubleL().from(mainAxisOffsets);
+    ;
+  }).prototype = sliver_staggered_grid._ViewportOffsets.prototype;
+  dart.addTypeTests(sliver_staggered_grid._ViewportOffsets);
+  dart.addTypeCaches(sliver_staggered_grid._ViewportOffsets);
+  dart.setMethodSignature(sliver_staggered_grid._ViewportOffsets, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid._ViewportOffsets.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
+  }));
+  dart.setLibraryUri(sliver_staggered_grid._ViewportOffsets, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid._ViewportOffsets, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid._ViewportOffsets.__proto__),
+    pageIndex: dart.finalFieldType(dart.legacy(core.int)),
+    firstChildIndex: dart.finalFieldType(dart.legacy(core.int)),
+    trailingScrollOffset: dart.finalFieldType(dart.legacy(core.double)),
+    mainAxisOffsets: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(core.double))))
+  }));
+  dart.defineExtensionMethods(sliver_staggered_grid._ViewportOffsets, ['toString']);
+  var mainAxisSpacing$0 = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridDelegate.mainAxisSpacing");
+  var crossAxisSpacing$0 = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridDelegate.crossAxisSpacing");
+  var staggeredTileBuilder$0 = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridDelegate.staggeredTileBuilder");
+  var staggeredTileCount$0 = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridDelegate.staggeredTileCount");
+  var _debugAssertIsValid = dart.privateName(sliver_staggered_grid, "_debugAssertIsValid");
+  sliver_staggered_grid.SliverStaggeredGridDelegate = class SliverStaggeredGridDelegate extends core.Object {
+    get mainAxisSpacing() {
+      return this[mainAxisSpacing$0];
+    }
+    set mainAxisSpacing(value) {
+      super.mainAxisSpacing = value;
+    }
+    get crossAxisSpacing() {
+      return this[crossAxisSpacing$0];
+    }
+    set crossAxisSpacing(value) {
+      super.crossAxisSpacing = value;
+    }
+    get staggeredTileBuilder() {
+      return this[staggeredTileBuilder$0];
+    }
+    set staggeredTileBuilder(value) {
+      super.staggeredTileBuilder = value;
+    }
+    get staggeredTileCount() {
+      return this[staggeredTileCount$0];
+    }
+    set staggeredTileCount(value) {
+      super.staggeredTileCount = value;
+    }
+    [_debugAssertIsValid]() {
+      if (!(this.staggeredTileBuilder != null)) dart.assertFailed(null, I[0], 574, 12, "staggeredTileBuilder != null");
+      if (!(dart.notNull(this.mainAxisSpacing) >= 0.0)) dart.assertFailed(null, I[0], 575, 12, "mainAxisSpacing >= 0.0");
+      if (!(dart.notNull(this.crossAxisSpacing) >= 0.0)) dart.assertFailed(null, I[0], 576, 12, "crossAxisSpacing >= 0.0");
+      return true;
+    }
+    shouldRelayout(oldDelegate) {
+      return oldDelegate.mainAxisSpacing != this.mainAxisSpacing || oldDelegate.crossAxisSpacing != this.crossAxisSpacing || oldDelegate.staggeredTileCount != this.staggeredTileCount || !dart.equals(oldDelegate.staggeredTileBuilder, this.staggeredTileBuilder);
+    }
+  };
+  (sliver_staggered_grid.SliverStaggeredGridDelegate.new = function(opts) {
+    let staggeredTileBuilder = opts && 'staggeredTileBuilder' in opts ? opts.staggeredTileBuilder : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let staggeredTileCount = opts && 'staggeredTileCount' in opts ? opts.staggeredTileCount : null;
+    this[staggeredTileBuilder$0] = staggeredTileBuilder;
+    this[mainAxisSpacing$0] = mainAxisSpacing;
+    this[crossAxisSpacing$0] = crossAxisSpacing;
+    this[staggeredTileCount$0] = staggeredTileCount;
+    if (!(staggeredTileBuilder != null)) dart.assertFailed(null, I[0], 553, 16, "staggeredTileBuilder != null");
+    if (!(mainAxisSpacing != null && dart.notNull(mainAxisSpacing) >= 0)) dart.assertFailed(null, I[0], 554, 16, "mainAxisSpacing != null && mainAxisSpacing >= 0");
+    if (!(crossAxisSpacing != null && dart.notNull(crossAxisSpacing) >= 0)) dart.assertFailed(null, I[0], 555, 16, "crossAxisSpacing != null && crossAxisSpacing >= 0");
+    ;
+  }).prototype = sliver_staggered_grid.SliverStaggeredGridDelegate.prototype;
+  dart.addTypeTests(sliver_staggered_grid.SliverStaggeredGridDelegate);
+  dart.addTypeCaches(sliver_staggered_grid.SliverStaggeredGridDelegate);
+  dart.setMethodSignature(sliver_staggered_grid.SliverStaggeredGridDelegate, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid.SliverStaggeredGridDelegate.__proto__),
+    [_debugAssertIsValid]: dart.fnType(dart.legacy(core.bool), []),
+    shouldRelayout: dart.fnType(dart.legacy(core.bool), [dart.legacy(sliver_staggered_grid.SliverStaggeredGridDelegate)])
+  }));
+  dart.setLibraryUri(sliver_staggered_grid.SliverStaggeredGridDelegate, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid.SliverStaggeredGridDelegate, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid.SliverStaggeredGridDelegate.__proto__),
+    mainAxisSpacing: dart.finalFieldType(dart.legacy(core.double)),
+    crossAxisSpacing: dart.finalFieldType(dart.legacy(core.double)),
+    staggeredTileBuilder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(staggered_tile.StaggeredTile), [dart.legacy(core.int)]))),
+    staggeredTileCount: dart.finalFieldType(dart.legacy(core.int))
+  }));
+  var crossAxisCount$1 = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridDelegateWithFixedCrossAxisCount.crossAxisCount");
+  sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount = class SliverStaggeredGridDelegateWithFixedCrossAxisCount extends sliver_staggered_grid.SliverStaggeredGridDelegate {
+    get crossAxisCount() {
+      return this[crossAxisCount$1];
+    }
+    set crossAxisCount(value) {
+      super.crossAxisCount = value;
+    }
+    [_debugAssertIsValid]() {
+      if (!(dart.notNull(this.crossAxisCount) > 0)) dart.assertFailed(null, I[0], 642, 12, "crossAxisCount > 0");
+      return super[_debugAssertIsValid]();
+    }
+    getConfiguration(constraints) {
+      if (!dart.test(this[_debugAssertIsValid]())) dart.assertFailed(null, I[0], 648, 12, "_debugAssertIsValid()");
+      let usableCrossAxisExtent = dart.notNull(constraints.crossAxisExtent) - dart.notNull(this.crossAxisSpacing) * (dart.notNull(this.crossAxisCount) - 1);
+      let cellExtent = usableCrossAxisExtent / dart.notNull(this.crossAxisCount);
+      return new sliver_staggered_grid.StaggeredGridConfiguration.new({crossAxisCount: this.crossAxisCount, staggeredTileBuilder: this.staggeredTileBuilder, staggeredTileCount: this.staggeredTileCount, cellExtent: cellExtent, mainAxisSpacing: this.mainAxisSpacing, crossAxisSpacing: this.crossAxisSpacing, reverseCrossAxis: basic_types.axisDirectionIsReversed(constraints.crossAxisDirection)});
+    }
+    shouldRelayout(oldDelegate) {
+      T.SliverStaggeredGridDelegateWithFixedCrossAxisCountL().as(oldDelegate);
+      return oldDelegate.crossAxisCount != this.crossAxisCount || dart.test(super.shouldRelayout(oldDelegate));
+    }
+  };
+  (sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.new = function(opts) {
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    let staggeredTileBuilder = opts && 'staggeredTileBuilder' in opts ? opts.staggeredTileBuilder : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let staggeredTileCount = opts && 'staggeredTileCount' in opts ? opts.staggeredTileCount : null;
+    this[crossAxisCount$1] = crossAxisCount;
+    if (!(crossAxisCount != null && dart.notNull(crossAxisCount) > 0)) dart.assertFailed(null, I[0], 629, 16, "crossAxisCount != null && crossAxisCount > 0");
+    sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.__proto__.new.call(this, {staggeredTileBuilder: staggeredTileBuilder, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, staggeredTileCount: staggeredTileCount});
+    ;
+  }).prototype = sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.prototype;
+  dart.addTypeTests(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount);
+  dart.addTypeCaches(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount);
+  dart.setMethodSignature(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.__proto__),
+    getConfiguration: dart.fnType(dart.legacy(sliver_staggered_grid.StaggeredGridConfiguration), [dart.legacy(sliver.SliverConstraints)]),
+    shouldRelayout: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid.SliverStaggeredGridDelegateWithFixedCrossAxisCount.__proto__),
+    crossAxisCount: dart.finalFieldType(dart.legacy(core.int))
+  }));
+  var maxCrossAxisExtent$ = dart.privateName(sliver_staggered_grid, "SliverStaggeredGridDelegateWithMaxCrossAxisExtent.maxCrossAxisExtent");
+  sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent = class SliverStaggeredGridDelegateWithMaxCrossAxisExtent extends sliver_staggered_grid.SliverStaggeredGridDelegate {
+    get maxCrossAxisExtent() {
+      return this[maxCrossAxisExtent$];
+    }
+    set maxCrossAxisExtent(value) {
+      super.maxCrossAxisExtent = value;
+    }
+    [_debugAssertIsValid]() {
+      if (!(dart.notNull(this.maxCrossAxisExtent) >= 0)) dart.assertFailed(null, I[0], 732, 12, "maxCrossAxisExtent >= 0");
+      return super[_debugAssertIsValid]();
+    }
+    getConfiguration(constraints) {
+      if (!dart.test(this[_debugAssertIsValid]())) dart.assertFailed(null, I[0], 738, 12, "_debugAssertIsValid()");
+      let crossAxisCount = ((dart.notNull(constraints.crossAxisExtent) + dart.notNull(this.crossAxisSpacing)) / (dart.notNull(this.maxCrossAxisExtent) + dart.notNull(this.crossAxisSpacing)))[$ceil]();
+      let usableCrossAxisExtent = dart.notNull(constraints.crossAxisExtent) - dart.notNull(this.crossAxisSpacing) * (crossAxisCount - 1);
+      let cellExtent = usableCrossAxisExtent / crossAxisCount;
+      return new sliver_staggered_grid.StaggeredGridConfiguration.new({crossAxisCount: crossAxisCount, staggeredTileBuilder: this.staggeredTileBuilder, staggeredTileCount: this.staggeredTileCount, cellExtent: cellExtent, mainAxisSpacing: this.mainAxisSpacing, crossAxisSpacing: this.crossAxisSpacing, reverseCrossAxis: basic_types.axisDirectionIsReversed(constraints.crossAxisDirection)});
+    }
+    shouldRelayout(oldDelegate) {
+      T.SliverStaggeredGridDelegateWithMaxCrossAxisExtentL().as(oldDelegate);
+      return oldDelegate.maxCrossAxisExtent != this.maxCrossAxisExtent || dart.test(super.shouldRelayout(oldDelegate));
+    }
+  };
+  (sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.new = function(opts) {
+    let maxCrossAxisExtent = opts && 'maxCrossAxisExtent' in opts ? opts.maxCrossAxisExtent : null;
+    let staggeredTileBuilder = opts && 'staggeredTileBuilder' in opts ? opts.staggeredTileBuilder : null;
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    let staggeredTileCount = opts && 'staggeredTileCount' in opts ? opts.staggeredTileCount : null;
+    this[maxCrossAxisExtent$] = maxCrossAxisExtent;
+    if (!(maxCrossAxisExtent != null && dart.notNull(maxCrossAxisExtent) > 0)) dart.assertFailed(null, I[0], 709, 16, "maxCrossAxisExtent != null && maxCrossAxisExtent > 0");
+    sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.__proto__.new.call(this, {staggeredTileBuilder: staggeredTileBuilder, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, staggeredTileCount: staggeredTileCount});
+    ;
+  }).prototype = sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.prototype;
+  dart.addTypeTests(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent);
+  dart.addTypeCaches(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent);
+  dart.setMethodSignature(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent, () => ({
+    __proto__: dart.getMethods(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.__proto__),
+    getConfiguration: dart.fnType(dart.legacy(sliver_staggered_grid.StaggeredGridConfiguration), [dart.legacy(sliver.SliverConstraints)]),
+    shouldRelayout: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent, I[1]);
+  dart.setFieldSignature(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent, () => ({
+    __proto__: dart.getFields(sliver_staggered_grid.SliverStaggeredGridDelegateWithMaxCrossAxisExtent.__proto__),
+    maxCrossAxisExtent: dart.finalFieldType(dart.legacy(core.double))
+  }));
+  sliver_staggered_grid._nearEqual = function _nearEqual(d1, d2) {
+    return (dart.notNull(d1) - dart.notNull(d2))[$abs]() < 0.0001;
+  };
+  dart.defineLazy(sliver_staggered_grid, {
+    /*sliver_staggered_grid._epsilon*/get _epsilon() {
+      return 0.0001;
+    }
+  }, true);
+  dart.trackLibraries("packages/flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart", {
+    "package:flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart": sliver_staggered_grid
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_staggered_grid.dart"],"names":[],"mappings":"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","file":"../../../../../../../../../../../../../D:/packages/flutter_staggered_grid_view/src/rendering/sliver_staggered_grid.dart.lib.js"}');
+  // Exports:
+  return {
+    src__rendering__sliver_staggered_grid: sliver_staggered_grid
+  };
+}));
+
+//# sourceMappingURL=sliver_staggered_grid.dart.lib.js.map
